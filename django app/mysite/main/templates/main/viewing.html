@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %} view database {% endblock %} 
+
+{% block content %}
+    <h1>Database:</h1>
+    <form method="post" action="#">
+    {% csrf_token %}
+    {% for thing in ls %}
+        <ul>
+        <li><h2>{{thing.name}}</h2></li>
+            {% for item in thing.item_set.all %}
+                <li>{{item.text}}</li>
+                {% if item.complete == False %}
+                    <input type="checkbox" value="clicked" name="c{{item.id}}"></button>
+                {% else %}
+                    <input type="checkbox" value="clicked" name="c{{item.id}}" checked></button>
+                {%endif%}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <button type="submit", name="save", value="save">Save</button>
+    </form>
+{% endblock %}
