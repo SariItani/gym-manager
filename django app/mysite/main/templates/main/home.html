@@ -3,7 +3,10 @@
 {%block title%}
 Home Page
 {%endblock%}
-
+{%if user.is_authenticated%}
 {% block content %}
     <h1>Welcome to the Gym Manager App</h1>
 {% endblock %}
+{% else %}
+    <p>Login <a href="/login">Here</a></p>
+{% endif %}

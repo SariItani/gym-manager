@@ -1,12 +1,19 @@
 {% extends "main/base.html" %}
 
 {%block title%} Create Page {%endblock%}
-
+{%if user.is_authenticated%}
 {% block content %}
-Create a new list
-<form method="post" action="/create/">
+<h3>Create a new list</h3>
+<form method="post" action="/create/" class="form-group">
     {% csrf_token %}
-    {{form.as_ul}}
-    <button type="submit", name="save">Create New</button>
+    <div class="input-group nb-3">
+        <div class="input-group-prepend">
+            <button type="submit", name="save" class="btn btn-success my-2 my-sm-0">Create New</button>
+            {{form.name}}
+        </div>
+    </div>
 </form>
 {%endblock%}
+{% else %}
+    <p>Login <a href="/login">Here</a></p>
+{% endif %}
