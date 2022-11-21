@@ -1,5 +1,6 @@
 import random
 
+#sample change
 def method1():
     # shift by alphabet
     shift = random.randint(1, 27)
