@@ -1,15 +1,30 @@
 {% extends 'workers/base.html'%}
 {%block title%}LOGIN PAGE{%endblock%}
 {%block content%}
-<form>
-    {% csrf_token %}
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="User name">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Password">
-      </div>
-    </div>
-  </form>
+<form class="form-group row">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col">
+			<input type="text" class="form-control" placeholder="Employee name" />
+		</div>
+		<div class="col">
+			<input type="text" class="form-control" placeholder="Email" />
+		</div>
+    <div class="col">
+			<input type="text" class="form-control" placeholder="Password" />
+		</div>
+    <div class="col">
+			<input type="text" class="form-control" placeholder="nb" />
+		</div>
+    <div class="col">
+			<input type="text" class="form-control" placeholder="Job Title" />
+		</div>
+    <div class="col">
+			<input type="text" class="form-control" placeholder="Legal Status" />
+		</div>
+    <div class="col">
+			<input type="text" class="form-control" placeholder="Salary" />
+		</div>
+	</div>
+</form>
 {%endblock%}

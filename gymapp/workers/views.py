@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from .models import Schedule, Workers, Customers, Cams, Stock
 
 # Create your views here.
 def index(response):
@@ -12,6 +13,9 @@ def schedule(response):
 
 def personal(response):
     pass
+
+def create(response):
+    return render(response, "workers/login.html", {})
 
 def cams(response):
     pass
