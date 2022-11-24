@@ -1,0 +1,15 @@
+{% extends 'workers/base.html'%}
+{%block title%}LOGIN PAGE{%endblock%}
+{%block content%}
+<form>
+    {% csrf_token %}
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="User name">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Password">
+      </div>
+    </div>
+  </form>
+{%endblock%}
