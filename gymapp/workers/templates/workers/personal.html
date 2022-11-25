@@ -1,0 +1,42 @@
+{% extends 'workers/base.html'%}
+{% block title%}Personal Data{%endblock%}
+{%block content%}
+<h1>Here are the employee records:</h1>
+<br>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Employee ID</th>
+            <th>Job Title</th>
+            <th>Legal</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in data %}
+        <tr>
+            <td class="table-secondary">{{e.name}}</td>
+            <td class="table-active">{{e.email}}</td>
+            <td class="table-active">{{e.password}}</td>
+            <td class="table-active">{{e.nb}}</td>
+            <td class="table-active">{{e.jobtitle}}</td>
+            <td class="table-active">{{e.legal}}</td>
+            <td class="table-active">{{e.salary}}</td>
+        </tr>
+      {%endfor%}
+    </tbody>
+</table>
+<form method="POST">
+    {%csrf_token%}
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Employee Name" name="name">
+        <div class="input-group-append">
+            <button class="btn btn-danger" type="submit" value="remove" name="remove">REMOVE</button>
+        </div>
+    </div>
+</form>
+{%endblock%}

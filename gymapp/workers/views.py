@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import *
 from .forms import *
 
@@ -18,7 +19,14 @@ def schedule(response):
 
 
 def personal(response):
-    pass
+    data = Workers.objects.all()
+    if response.method == "POST":
+        print(response.POST)
+        if response.POST.get("remove"):
+            n = response.POST.get("name")
+            entry = Workers.objects.get(name=n)
+            entry.delete()
+    return render(response, "workers/personal.html", {"data" : data})
 
 
 def create(response):
