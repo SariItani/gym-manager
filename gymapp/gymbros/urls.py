@@ -3,7 +3,7 @@ from .views import index, login, signin, create, dashboard, programs, ux
 
 urlpatterns = [
     path("", login, name='login'),
-    path("signin/", signin, name='signin'),
+    path("sign-in/", signin, name='sign-in'),
     path("create/", create, name='create'),
     path('index/', index, name='index'),
     path('dashboard/', dashboard, name='dashbaord'),
