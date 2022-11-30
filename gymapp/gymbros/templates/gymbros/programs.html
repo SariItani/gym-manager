@@ -1,0 +1,170 @@
+{% extends 'gymbros/base.html' %}
+{%load static %}
+{% block title %}Programs{% endblock %}
+{% block content%}
+<main role="main">
+    <form method="POST">
+        {%csrf_token%}
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Programs</h1>
+                <p class="lead text-muted">Boost your gym experience with our special programs!</p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img
+                                class="card-img-top"
+                                style="height: 225px; width: 100%; display: block"
+                                src="{% static "images/yoga.jpg" %}"
+                            />
+                            <div class="card-body">
+                                <p class="card-text">Yoga</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button  type="submit"class="btn btn-sm btn-outline-success" name="yoga" value="yoga">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">$15/hr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img
+                                class="card-img-top"
+                                style="height: 225px; width: 100%; display: block"
+                                src="{% static "images/circuit.jpg" %}"
+                            />
+                            <div class="card-body">
+                                <p class="card-text">Circuit Training</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-sm btn-outline-success" name="circuit" value="circuit">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">$30/hr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img
+                                class="card-img-top"
+                                style="height: 225px; width: 100%; display: block"
+                                src="{% static "images/hiit.jpeg" %}"
+                            />
+                            <div class="card-body">
+                                <p class="card-text">HIIT</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-sm btn-outline-success" name="hiit" value="hiit">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">$34/hr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img
+                                class="card-img-top"
+                                style="height: 225px; width: 100%; display: block"
+                                src="{% static "images/bootcamp.jpg" %}"
+                            />
+                            <div class="card-body">
+                                <p class="card-text">Bootcamp</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-sm btn-outline-success" name="bootcamp" value="bootcamp">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">$40/hr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img
+                                class="card-img-top"
+                                style="height: 225px; width: 100%; display: block"
+                                src="{% static "images/zumba.jpg" %}"
+                            />
+                            <div class="card-body">
+                                <p class="card-text">Zumba</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-sm btn-outline-success" name="zumba" value="zumba">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">$25/hr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img
+                                class="card-img-top"
+                                style="height: 225px; width: 100%; display: block"
+                                src="{% static "images/kickboxing.jpeg" %}"
+                            />
+                            <div class="card-body">
+                                <p class="card-text">Kick Boxing</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-sm btn-outline-success" name="boxing" value="boxing">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">$25/hr</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		    </div>
+	    </div>
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Basic</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">$2 <small class="text-muted">/ hour</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Gain access to the gym equipment</li>
+                </ul>
+                <button type="submit" name="member" value="member" class="btn btn-lg btn-block btn-success">Become a Member</button>
+            </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Pro</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">$10 <small class="text-muted">/ hour</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                <li>Get a personal trainer</li>
+                </ul>
+                <button type="submit" name="trainer" value="trainer" class="btn btn-lg btn-block btn-primary">Join the Pro Members</button>
+            </div>
+            </div>
+        </div>
+    </form>
+</main>
+{% endblock %}

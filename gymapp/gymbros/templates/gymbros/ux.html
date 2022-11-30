@@ -1,0 +1,21 @@
+{% extends 'gymbros/base.html' %}
+{% block title %}User Experience{% endblock %}
+{% block content %}
+<form method="POST" class="form-group">
+    {% csrf_token %}
+    <h1 class="text-mute">Tell us about your experience in our gym :</h1>
+    <br>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Username</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name..." name="name">
+      </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email..." name="email">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Leave a comment :</label>
+      <input type="text" class="form-control" name="comment" placeholder="comment..."/></div>
+    <button type="submit" class="btn btn-primary" name="send" value="send">Send</button>
+  </form>
+{% endblock %}

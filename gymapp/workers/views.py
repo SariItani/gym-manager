@@ -11,11 +11,18 @@ def index(response):
 
 
 def customers(response):
-    pass
+    data = Customers.objects.all()
+    if response.method == "POST":
+        print(response.POST)
+        if response.POST.get("remove"):
+            n = response.POST.get("name")
+            entry = Customers.objects.get(name=n)
+            entry.delete()
+    return render(response, "workers/customers.html", {"data":data})
 
 
 def schedule(response):
-    pass
+    return render(response, "workers/schedule.html", {})
 
 
 def personal(response):
@@ -51,8 +58,8 @@ def create(response):
 
 
 def cams(response):
-    pass
+    return render(response, "workers/cams.html", {})
 
 
 def stock(response):
-    pass
+    return render(response, "workers/stock.html", {})

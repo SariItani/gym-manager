@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-info">
-			<a class="navbar-brand text-dark" href="/index"
+			<a class="navbar-brand text-dark" href="/index/{{userID}}"
 				><img
 					src="https://img.icons8.com/external-konkapp-outline-color-konkapp/64/null/external-dumbbell-gym-konkapp-outline-color-konkapp-1.png"
 					width="30"
@@ -43,18 +43,14 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="nav nav-pills">
 					<li class="nav-item active">
-						<a class="nav-link text-white" href="/index"
-							>Home <span class="sr-only">(current)</span></a
+						<a class="nav-link text-white" href="/dashboard/{{userID}}">Dashboard<span class="sr-only">(current)</span></a
 						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="/dashboard">Dashboard</a>
+						<a class="nav-link text-white" href="/programs/{{userID}}">Programs</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="/programs">Programs</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white" href="/ux">User Experience</a>
+						<a class="nav-link text-white" href="/ux/{{userID}}">User Experience</a>
 					</li>
 				</ul>
 				<ul class="nav nav-pills">
