@@ -1,5 +1,8 @@
 {% extends 'gymbros/base.html' %}
 {% block title %}Index Page{% endblock %}
 {% block content %}
-    <h1>THIS IS THE INDEX PAGE YAY</h1>
+    <h1>Hello, welcome to the gym app!</h1>
+    <big>View out your <a href="/dashboard/{{userID}}" class="text-info">Dashboard</a></big><br>
+    <big>Check out our <a href="/programs/{{userID}}" class="text-success">Programs</a></big><br>
+    <big>Leave us your <a href="/ux/{{userID}}" class="text-warning">Feedback</a></big><br>
 {% endblock %}

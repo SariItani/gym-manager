@@ -100,7 +100,7 @@ def signin(response):
             w = int(response.POST.get("weight"))
             h = int(response.POST.get("height"))
             customer = Customer(customer=user, name=u, gender=g,
-                                weight=w, height=h, bmi=w**2/h, Programs='', bill=0)
+                                weight=w, height=h, bmi=10000*w/(h**2), Programs='', bill=0)
             customer.save()
             global customerID
             customerID = customer.id
@@ -214,6 +214,17 @@ def dashboard(response, userID):
             return HttpResponseRedirect("/")
         if response.POST.get("sign-in"):
             return HttpResponseRedirect("/sign-in")
+        if response.POST.get("save"):
+            print(customer.weight, customer.height, customer.bmi)
+            Customer.objects.filter(customer_id=userID).update(
+                weight=response.POST.get("weight"))
+            Customer.objects.filter(customer_id=userID).update(
+                height=response.POST.get("height"))
+            Customer.objects.filter(customer_id=userID).update(
+                bmi=int(float(response.POST.get("weight")) / (float(response.POST.get("height")) ** 2) * 10000))
+            Customer.objects.filter(customer_id=userID).update(
+                name=response.POST.get("username"))
+            return HttpResponseRedirect("/dashboard/%i" % userID)
         if response.POST.get("remove"):
             print(response.POST)
             remove = response.POST.get("program")
@@ -255,7 +266,7 @@ def dashboard(response, userID):
     elif customer.bmi <= 40:
         msg = "You are obese!"
         training = "Seated chest press (10 reps x 4 sets),Seated rows (10 reps x 4 sets),Wide grip lat pulldown (10 reps x 4 sets),Seated leg press (10 reps x 4 sets),Dumbbell seated shoulder press (10 reps x 4 sets),Dumbbell bicep curls (10 reps x 4 sets),Close grip tricep press ups (10 reps x 4 sets),Cable rotations/twists (10 reps x 4 sets),Reverse crunches (10 reps x 4 sets)"
-    return render(response, "gymbros/dashboard.html", {"userID": userID, "name": customer.name, "programs": customer.Programs.replace(" ", " | "), "bill": customer.bill, "bmi": customer.bmi, "msg": msg, "training": training, "payment":Customers.objects.get(Customer_id=customer.id).bill})
+    return render(response, "gymbros/dashboard.html", {"userID": userID, "name": customer.name, "programs": customer.Programs.replace(" ", " | "), "bill": customer.bill, "bmi": customer.bmi, "msg": msg, "training": training, "payment": Customers.objects.get(Customer_id=customer.id).bill, "weight": customer.weight, "height": customer.height})
 
 
 def ux(response, userID):

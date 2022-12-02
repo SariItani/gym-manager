@@ -9,6 +9,20 @@
         <p class="text-dark"><big class="text-success">View your personal dashboard</big> customise your programs and view your bills.<br>
         <big>Your BMI is:</big> {{bmi}}<br><big>{{msg}}</big><br><big class="text-info" >We advise you to do these exercises:</big> {{training}}</p>
         {% comment %} need to add the ability to change weight and height over here {% endcomment %}
+        <big>In case you need to change these :</big>
+        <div class="row">
+            <div class="col">
+                <input type="number" name="weight" class="form-control" placeholder="weight : {{weight}}">
+            </div>
+            <div class="col">
+                <input type="number" name="height" class="form-control" placeholder="height : {{height}}">
+            </div>
+            <div class="col">
+                <input type="text" name="username" class="form-control" placeholder="username : {{name}}">
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success" name="save" value="save">Save Changes</button>
         </div>
     </div>
     <div class="container">
